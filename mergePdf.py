@@ -9,7 +9,7 @@
 
 from PyPDF2 import PdfFileReader, PdfFileMerger
 from rich import print
-OUTPUT_DIR = "/Users/bencarpenter/Documents"
+OUTPUT_DIR = "/Users/bencarpenter/OneDrive/Personal/PDFs"
 
 # Welcome:
 print("[bold green]PDF File Merger[/bold green] | Ben Carpenter, 2021\n-------------------------------------")
@@ -35,4 +35,4 @@ for file in PDFfiles:
 
 output.write(f"{OUTPUT_DIR}/{outFileName}.pdf")
 
-print(f"Megred File: [magenta]{OUTPUT_DIR}/{outFileName}.pdf[/magenta]\n-------------------------------------")
+print(f"Merged File: [magenta]{OUTPUT_DIR}/{outFileName}.pdf[/magenta]\n-------------------------------------")
