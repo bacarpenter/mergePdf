@@ -1,3 +1,4 @@
+#!/usr/local/bin/python3
 
     ##################################################
     #                                                #
@@ -7,42 +8,31 @@
     ##################################################
 
 from PyPDF2 import PdfFileReader, PdfFileMerger
+from rich import print
 OUTPUT_DIR = "/Users/bencarpenter/Documents"
 
+# Welcome:
+print("[bold green]PDF File Merger[/bold green] | Ben Carpenter, 2021\n-------------------------------------")
 
-def combinePDF(path1, path2, mergeName):
-    """
-    Combine the two files into one PDF with PyPDF.
-    """
+numOfFiles = int(input("How many files would you like to combine? "))
+i = 1
+PDFfiles = []
+while i < numOfFiles + 1:
+    path = input(f"Path of #{i}: ").replace("\\", "").strip()
+    try:
+        PDFfiles.append(PdfFileReader(path))
+    except FileNotFoundError:
+        print("[bold red]Error. File not found. Is the path correct?[/bold red]")
+        i -= 1
 
-    file1 = PdfFileReader(path1.replace("\\", ""))
-    file2 = PdfFileReader(path2.replace("\\", ""))
+    i += 1
 
-    output = PdfFileMerger()
-    output.append(file1)
-    output.append(file2)
+outFileName = input("Merged File Name (w/o '.pdf'!): ")#.replace(" ", "\\ ").strip()
 
-    output.write(f'{OUTPUT_DIR}/{mergeName}.pdf')
-    return output
+output = PdfFileMerger()
+for file in PDFfiles:
+    output.append(file)
 
+output.write(f"{OUTPUT_DIR}/{outFileName}.pdf")
 
-def main():
-    """
-    Main function
-    """
-    print("PDF File Merger | Combine two files!\n------------------------------------")
-    path1 = input("Path of first file: ")
-    path2 = input("Path of second file: ")
-    outName = input("Merged name: (With out '.pdf'!) ")
-
-    combined = combinePDF(path1, path2, outName)
-
-    if combined:
-        print(
-            f"Combined file path: {OUTPUT_DIR}/{outName}.pdf\n------------------------------------")
-
-    else:
-        print("error!")
-
-
-main()
+print(f"Megred File: [magenta]{OUTPUT_DIR}/{outFileName}.pdf[/magenta]\n-------------------------------------")
