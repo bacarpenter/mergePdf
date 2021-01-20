@@ -4,7 +4,7 @@ A small python script to combine multiple PDF files, mainly so that I can make u
 
 ## Usage
 
-First, install the used packages with `pip install -r requirements.txt`. Then, run the script with `python3 variableMerge.py`.
+First, install the used packages with `pip install -r requirements.txt`. Then, run the script with `python3 mergePDF.py`.
 
 ## Credits
 
