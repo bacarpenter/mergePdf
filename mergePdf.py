@@ -13,8 +13,11 @@ OUTPUT_DIR = "/Users/bencarpenter/OneDrive/Personal/PDFs"
 
 # Welcome:
 print("[bold green]PDF File Merger[/bold green] | Ben Carpenter, 2021\n-------------------------------------")
-
-numOfFiles = int(input("How many files would you like to combine? "))
+try:
+    numOfFiles = int(input("How many files would you like to combine? "))
+except ValueError:
+    print("[bold red]Error. Must be a number.[/bold red]")
+    exit(2)
 i = 1
 PDFfiles = []
 while i < numOfFiles + 1:
@@ -34,5 +37,4 @@ for file in PDFfiles:
     output.append(file)
 
 output.write(f"{OUTPUT_DIR}/{outFileName}.pdf")
-
 print(f"Merged File: [magenta]{OUTPUT_DIR}/{outFileName}.pdf[/magenta]\n-------------------------------------")
