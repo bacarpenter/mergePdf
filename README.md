@@ -4,7 +4,7 @@ A small python script to combine multiple PDF files, mainly so that I can make u
 
 ## Usage
 
-First, install the used packages with `pip install -r requirements.txt`. Then, change your output directory to the path of where you want you files to go by changing the `OUTPUT_DIR` variable, near the top of mergePDF.py. Run the script with `python3 mergePDF.py`.
+First, install the used packages with `pip install -r requirements.txt`. Then, change your output directory to the path of where you want you files to go by changing the `OUTPUT_DIR` variable, near the top of mergePDF.py. Run the script with `python3 mergePdf.py`.
 
 ## Credits
 
